@@ -1,0 +1,101 @@
+.company-info-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.company-info-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.vision-card {
+  background-color: #a49ded;
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.vision-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.who-we-are-card {
+  background-color: #2c3082;
+  border-radius: 20px;
+  padding: 60px 40px;
+  position: relative;
+}
+
+.section-title-white {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.description-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.go-back-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: #ffffff;
+  color: #2c3082;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.go-back-btn:hover {
+  background-color: #a49ded;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .section-title,
+  .section-title-white {
+    font-size: 28px;
+  }
+
+  .vision-text,
+  .description-text {
+    font-size: 16px;
+  }
+
+  .vision-card,
+  .who-we-are-card {
+    padding: 40px 30px;
+  }
+
+  .go-back-btn {
+    position: static;
+    margin-top: 20px;
+  }
+}

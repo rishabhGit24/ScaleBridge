@@ -1,0 +1,30 @@
+import './CompanyInfo.css';
+
+const CompanyInfo = () => {
+    return (
+        <section className="company-info-section">
+            <div className="company-info-container">
+                <div className="vision-card">
+                    <h2 className="section-title">Company Vision</h2>
+                    <p className="vision-text">
+                        "To empower enterprises with lean, intelligent finance operations that drive
+                        clarity, agility, scalability leveraging Lean processes and technology"
+                    </p>
+                </div>
+
+                <div className="who-we-are-card">
+                    <h2 className="section-title-white">Who are we? What do we do?</h2>
+                    <p className="description-text">
+                        We are finance transformation architects for micro and small enterprises.
+                        Specialists in finance operations redesign, from book closure to forecasting.
+                        We help build lean frameworks processes that simplify complexity, engaging
+                        with enterprises existing resources, people and deliver board room ready
+                        insights in weeks, not months.
+                    </p>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default CompanyInfo;
