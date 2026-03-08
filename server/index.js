@@ -51,14 +51,15 @@ app.use(express.json());
 // MongoDB connection string
 const uri =
   process.env.MONGODB_URI ||
-  "mongodb+srv://rishabhbr18_db_user:PuzYMJ38Nn4Pyf2u@cluster0.nzo3fwp.mongodb.net/?appName=Cluster0";
+  "mongodb+srv://rishabhbr18_db_user:PuzYMJ38Nn4Pyf2u@cluster0.nzo3fwp.mongodb.net/scalebridge?retryWrites=true&w=majority";
 
 // Global variable to cache the database connection
 let cachedDb = null;
+let cachedClient = null;
 
 // Helper function to get database connection
 async function getDatabase() {
-  if (cachedDb) {
+  if (cachedDb && cachedClient) {
     return cachedDb;
   }
 
@@ -68,10 +69,15 @@ async function getDatabase() {
       strict: true,
       deprecationErrors: true,
     },
+    maxPoolSize: 10,
+    minPoolSize: 1,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
   });
 
   try {
     await client.connect();
+    cachedClient = client;
     cachedDb = client.db("scalebridge");
     console.log("Connected to MongoDB");
     return cachedDb;
