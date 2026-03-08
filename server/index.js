@@ -53,25 +53,32 @@ const uri =
   process.env.MONGODB_URI ||
   "mongodb+srv://rishabhbr18_db_user:PuzYMJ38Nn4Pyf2u@cluster0.nzo3fwp.mongodb.net/?appName=Cluster0";
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-let client;
-let clientPromise;
+// Global variable to cache the database connection
+let cachedDb = null;
 
-if (!client) {
-  client = new MongoClient(uri, {
+// Helper function to get database connection
+async function getDatabase() {
+  if (cachedDb) {
+    return cachedDb;
+  }
+
+  const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
       strict: true,
       deprecationErrors: true,
     },
   });
-  clientPromise = client.connect();
-}
 
-// Helper function to get database connection
-async function getDatabase() {
-  await clientPromise;
-  return client.db("scalebridge");
+  try {
+    await client.connect();
+    cachedDb = client.db("scalebridge");
+    console.log("Connected to MongoDB");
+    return cachedDb;
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    throw error;
+  }
 }
 
 // API Routes
@@ -86,10 +93,14 @@ app.get("/api", (req, res) => {
 // POST endpoint to save contact form data
 app.post("/api/contacts", async (req, res) => {
   try {
+    console.log("Received POST request to /api/contacts");
+    console.log("Request body:", req.body);
+
     const { name, company, email, phone, message } = req.body;
 
     // Validate required fields
     if (!name || !email || !phone) {
+      console.log("Validation failed: missing required fields");
       return res.status(400).json({
         success: false,
         message: "Name, email, and phone are required fields",
@@ -97,6 +108,7 @@ app.post("/api/contacts", async (req, res) => {
     }
 
     // Get database connection
+    console.log("Connecting to database...");
     const db = await getDatabase();
     const contactsCollection = db.collection("contacts");
 
@@ -111,8 +123,10 @@ app.post("/api/contacts", async (req, res) => {
       status: "new",
     };
 
+    console.log("Inserting contact:", contact);
     // Insert into MongoDB
     const result = await contactsCollection.insertOne(contact);
+    console.log("Insert result:", result);
 
     res.status(201).json({
       success: true,
