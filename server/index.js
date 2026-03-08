@@ -54,39 +54,32 @@ const uri =
   "mongodb+srv://rishabhbr18_db_user:PuzYMJ38Nn4Pyf2u@cluster0.nzo3fwp.mongodb.net/?appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
+let client;
+let clientPromise;
 
-let db;
-let contactsCollection;
+if (!client) {
+  client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  });
+  clientPromise = client.connect();
+}
 
-// Connect to MongoDB
-async function connectDB() {
-  try {
-    await client.connect();
-    console.log("Successfully connected to MongoDB Atlas!");
-
-    db = client.db("scalebridge");
-    contactsCollection = db.collection("contacts");
-
-    // Test the connection
-    await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!",
-    );
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-    process.exit(1);
-  }
+// Helper function to get database connection
+async function getDatabase() {
+  await clientPromise;
+  return client.db("scalebridge");
 }
 
 // API Routes
 app.get("/", (req, res) => {
+  res.json({ message: "ScaleBridge API is running" });
+});
+
+app.get("/api", (req, res) => {
   res.json({ message: "ScaleBridge API is running" });
 });
 
@@ -102,6 +95,10 @@ app.post("/api/contacts", async (req, res) => {
         message: "Name, email, and phone are required fields",
       });
     }
+
+    // Get database connection
+    const db = await getDatabase();
+    const contactsCollection = db.collection("contacts");
 
     // Create contact document
     const contact = {
@@ -135,6 +132,9 @@ app.post("/api/contacts", async (req, res) => {
 // GET endpoint to retrieve all contacts (optional - for admin use)
 app.get("/api/contacts", async (req, res) => {
   try {
+    const db = await getDatabase();
+    const contactsCollection = db.collection("contacts");
+
     const contacts = await contactsCollection
       .find({})
       .sort({ createdAt: -1 })
@@ -154,20 +154,12 @@ app.get("/api/contacts", async (req, res) => {
   }
 });
 
-// Start server
-async function startServer() {
-  await connectDB();
-
+// For local development
+if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
 }
 
-// Handle graceful shutdown
-process.on("SIGINT", async () => {
-  console.log("\nClosing MongoDB connection...");
-  await client.close();
-  process.exit(0);
-});
-
-startServer();
+// Export for Vercel
+module.exports = app;
