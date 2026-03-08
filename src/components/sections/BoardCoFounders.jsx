@@ -14,7 +14,7 @@ const BoardCoFounders = () => {
         <section className="board-section">
             <div className="board-container">
                 <div className="board-header">
-                    <h2 className="board-title">Board and Co-founders</h2>
+                    <h2 className="board-title" style={{ maxWidth: "75%", fontSize: "4em", fontWeight: "850" }}>Board and Co-founders</h2>
                     <div className="member-card">
                         <div className="member-photo-placeholder">
                             <span>Picture</span>

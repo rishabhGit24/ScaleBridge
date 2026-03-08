@@ -46,6 +46,13 @@
   justify-content: center;
   background-color: #f9f9f9;
   margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.infographic-image-lean {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .infographic-placeholder-lean.bottom {

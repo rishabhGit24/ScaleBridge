@@ -35,7 +35,7 @@
 .member-card {
   background-color: #ffffff;
   border: 2px solid #e0e0e0;
-  border-radius: 4 0px;
+  border-radius: 4em;
   padding: 60px 30px;
   text-align: center;
   transition: all 0.3s ease;
@@ -43,7 +43,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 450px;
+  min-height: 650px;
 }
 
 .member-card:hover {
@@ -55,12 +55,11 @@
   width: 150px;
   height: 400px;
   border-radius: 15px;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   margin: 0 auto 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e0e0e0;
 }
 
 .member-photo-placeholder span {

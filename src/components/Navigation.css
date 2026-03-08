@@ -1,11 +1,16 @@
 .navigation-wrapper {
   position: fixed;
   top: 50px;
-  left: 45%;
+  left: 35%;
   transform: translateX(-50%);
   width: 90%;
   max-width: 955px;
   z-index: 1000;
+  transition: left 0.4s ease;
+}
+
+.navigation-wrapper.centered {
+  left: 50%;
 }
 
 .navigation {
@@ -21,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -61,14 +66,14 @@
 
 .nav-item {
   background: none;
-  border: 2px solid #2c3082;
+  border: 1px solid grey;
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 500;
   color: #0d110f;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 30px;
+  border-radius: 20px;
   white-space: nowrap;
 }
 

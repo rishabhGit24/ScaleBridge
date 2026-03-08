@@ -70,7 +70,7 @@ const Coordinates = () => {
     return (
         <section className="coordinates-section">
             <div className="coordinates-container">
-                <h2 className="coordinates-title">Co-ordinates</h2>
+                <h2 className="coordinates-title" style={{ fontSize: "4em", fontWeight: "850" }}>Co-ordinates</h2>
 
                 {submitStatus.message && (
                     <div className={`status-message ${submitStatus.type}`}>

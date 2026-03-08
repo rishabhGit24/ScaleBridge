@@ -1,10 +1,12 @@
+import image2 from '../../assets/image1.png';
+import image3 from '../../assets/image3.png';
 import './LeanModel.css';
 
 const LeanModel = () => {
     return (
         <section className="lean-section">
             <div className="lean-container">
-                <h2 className="lean-title">Lean Model</h2>
+                <h2 className="lean-title" style={{ fontSize: "4em", fontWeight: "850" }}>Lean Model</h2>
 
                 <div className="lean-subtitle">
                     <p>Agility and change management</p>
@@ -18,7 +20,7 @@ const LeanModel = () => {
                 </p>
 
                 <div className="infographic-placeholder-lean">
-                    <span>Infographics</span>
+                    <img src={image2} alt="Lean Model Infographic" className="infographic-image-lean" />
                 </div>
 
                 <div className="lean-content">
@@ -71,7 +73,7 @@ const LeanModel = () => {
                 </div>
 
                 <div className="infographic-placeholder-lean bottom">
-                    <span>Infographics</span>
+                    <img src={image3} alt="Lean Model Infographic Bottom" className="infographic-image-lean" />
                 </div>
             </div>
         </section>

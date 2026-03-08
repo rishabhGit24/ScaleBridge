@@ -23,19 +23,31 @@ function App() {
     ];
 
     useEffect(() => {
+        // Set initial background color
+        document.body.style.backgroundColor = '#ffffff';
+
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
 
             // Switch background color after scrolling 100px
             if (scrollPosition > 100) {
                 setBgOpacity(1);
+                document.body.style.backgroundColor = '#f6fcffb8';
             } else {
                 setBgOpacity(0);
+                document.body.style.backgroundColor = '#ffffff';
             }
         };
 
+        // Call once on mount to set initial state
+        handleScroll();
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            // Reset on unmount
+            document.body.style.backgroundColor = '';
+        };
     }, []);
 
     const handleNavigation = (sectionId) => {
@@ -99,7 +111,9 @@ function App() {
 
     return (
         <div className="app" style={{
-            backgroundColor: bgOpacity === 0 ? '#ffffff' : '#f6fcffb8'
+            backgroundColor: bgOpacity === 0 ? '#ffffff' : '#f6fcffb8',
+            maxWidth: "70em",
+            margin: "0 auto"
         }}>
             <Navigation
                 sections={sections}

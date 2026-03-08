@@ -23,7 +23,7 @@ const Navigation = ({ sections, activeSection, onNavigate }) => {
     };
 
     return (
-        <div className="navigation-wrapper">
+        <div className={`navigation-wrapper ${showGoBack ? 'centered' : ''}`}>
             <button
                 className={`go-back-btn ${showGoBack ? 'visible' : ''}`}
                 onClick={handleGoBack}
