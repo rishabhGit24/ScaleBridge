@@ -7,11 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // CORS configuration
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  "https://scale-bridge-frontend.vercel.app",
-];
+const allowedOrigins = ["https://scale-bridge-frontend.vercel.app"];
 
 // Middleware - Handle CORS manually for better Vercel compatibility
 app.use((req, res, next) => {
