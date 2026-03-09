@@ -119,18 +119,6 @@ const Coordinates = () => {
                             required
                         />
                     </div>
-
-                    <div className="form-message">
-                        <p className="message-label">Want to know more? Drop us a line!</p>
-                        <textarea
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            className="form-textarea"
-                            rows="6"
-                        />
-                    </div>
-
                     <button type="submit" className="send-btn" disabled={isSubmitting}>
                         <span className="btn-icon">○</span>
                         {isSubmitting ? 'Sending...' : 'Send'}
