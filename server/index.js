@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     // Fallback to allow the frontend domain
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://scale-bridge-frontend.vercel.app",
+      "https://scale-bridge.vercel.app",
     );
   }
 
