@@ -15,12 +15,12 @@
 
 .navigation {
   position: relative;
-  background: rgba(222, 224, 238, 0.7);
-  backdrop-filter: blur(1px);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(182, 186, 226, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 35px;
   border-radius: 60px;
   z-index: 2;
 }
@@ -68,8 +68,8 @@
 }
 
 .nav-item {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(128, 128, 128, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(128, 128, 128, 0.2);
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 500;
@@ -100,16 +100,31 @@
 @media (max-width: 1400px) {
   .navigation-wrapper {
     width: 85%;
+    max-width: 900px;
+  }
+
+  .navigation {
+    padding: 30px;
+  }
+
+  .nav-item {
+    padding: 11px 22px;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 1200px) {
   .navigation-wrapper {
     width: 90%;
+    max-width: 850px;
+  }
+
+  .navigation {
+    padding: 25px;
   }
 
   .nav-container {
-    gap: 12px;
+    gap: 10px;
   }
 
   .go-back-btn {
@@ -122,6 +137,26 @@
   .nav-item {
     padding: 10px 20px;
     font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navigation-wrapper {
+    width: 92%;
+    max-width: 800px;
+  }
+
+  .navigation {
+    padding: 20px;
+  }
+
+  .nav-container {
+    gap: 8px;
+  }
+
+  .nav-item {
+    padding: 9px 18px;
+    font-size: 14px;
   }
 }
 

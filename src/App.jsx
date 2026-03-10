@@ -53,7 +53,14 @@ function App() {
     const handleNavigation = (sectionId) => {
         const element = sectionRefs.current[sectionId];
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const navbarHeight = 200; // Adjust this value based on your navbar height + desired spacing
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - navbarHeight;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
             setActiveSection(sectionId);
         }
     };
@@ -61,7 +68,7 @@ function App() {
     useEffect(() => {
         const observerOptions = {
             root: null,
-            rootMargin: '-50% 0px -50% 0px',
+            rootMargin: '-200px 0px -50% 0px',
             threshold: 0
         };
 
