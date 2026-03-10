@@ -24,12 +24,6 @@ const Navigation = ({ sections, activeSection, onNavigate }) => {
 
     return (
         <div className={`navigation-wrapper ${showGoBack ? 'centered' : ''}`}>
-            <button
-                className={`go-back-btn ${showGoBack ? 'visible' : ''}`}
-                onClick={handleGoBack}
-                style={{ borderRadius: "50%", backgroundColor: "black", color: "#ffffff" }}>
-                Go back
-            </button>
             <nav className="navigation">
                 <div className="nav-container">
                     {sections.map((section) => (
