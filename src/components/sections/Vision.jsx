@@ -10,7 +10,7 @@ const Vision = () => {
                         <p>"To empower enterprises with lean, intelligent finance operations that drive clarity, agility, scalability leveraging Lean processes and technology"</p>
                     </div>
                     <div className="logo-container">
-                        <img src={logo} alt="ScaleBridge Logo" className="logo-image" />
+                        <img src={logo} alt="ScaleBridge Logo" className="logo-image" style={{ width: "16em" }} />
                         <h1 className="company-name">ScaleBridge</h1>
                     </div>
                 </div>
