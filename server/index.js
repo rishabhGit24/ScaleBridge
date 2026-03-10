@@ -7,7 +7,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // CORS configuration
-const allowedOrigins = ["https://scale-bridge-frontend.vercel.app"];
+const allowedOrigins = [
+  "https://scale-bridge.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:3000",
+];
 
 // Middleware - Handle CORS manually for better Vercel compatibility
 app.use((req, res, next) => {
@@ -16,11 +21,14 @@ app.use((req, res, next) => {
   // Always set CORS headers for allowed origins
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
+  } else if (origin && origin.includes("localhost")) {
+    // Allow any localhost origin for development
+    res.setHeader("Access-Control-Allow-Origin", origin);
   } else {
     // Fallback to allow the frontend domain
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://scale-bridge.vercel.app",
+      "https://scale-bridge-frontend.vercel.app",
     );
   }
 
@@ -165,6 +173,58 @@ app.get("/api/contacts", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to fetch contacts",
+      error: error.message,
+    });
+  }
+});
+
+// POST endpoint for admin login
+app.post("/api/admin/login", async (req, res) => {
+  try {
+    console.log("Received POST request to /api/admin/login");
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Username and password are required",
+      });
+    }
+
+    const db = await getDatabase();
+    const adminsCollection = db.collection("admins");
+
+    // Check if admin exists
+    const admin = await adminsCollection.findOne({ username });
+
+    if (!admin) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
+      });
+    }
+
+    // Verify password
+    if (admin.password !== password) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Login successful",
+      admin: {
+        username: admin.username,
+        name: admin.name || username,
+      },
+    });
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).json({
+      success: false,
+      message: "Login failed",
       error: error.message,
     });
   }
