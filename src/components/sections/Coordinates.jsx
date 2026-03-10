@@ -1,3 +1,7 @@
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope as faEnvelopeRegular } from '@fortawesome/free-regular-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import API_URL from '../../config';
 import './Coordinates.css';
@@ -120,10 +124,27 @@ const Coordinates = () => {
                         />
                     </div>
                     <button type="submit" className="send-btn" disabled={isSubmitting}>
-                        <span className="btn-icon">○</span>
+                        <FontAwesomeIcon icon={faPaperPlane} className="btn-icon" />
                         {isSubmitting ? 'Sending...' : 'Send'}
                     </button>
                 </form>
+
+                <div className="reach-out-section">
+                    <p className="reach-out-text">Want to know more? reach out to us!</p>
+                    <div className="social-icons">
+                        <a href="tel:+916361462603" className="social-icon" aria-label="Phone">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                                <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" stroke="currentColor" strokeWidth="20" fill="none" />
+                            </svg>
+                        </a>
+                        <a href="mailto:aprameyahari@gmail.com" className="social-icon" aria-label="Email">
+                            <FontAwesomeIcon icon={faEnvelopeRegular} />
+                        </a>
+                        <a href="https://instagram.com/scalebridge" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
+                            <FontAwesomeIcon icon={faInstagram} />
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     );

@@ -27,7 +27,7 @@ const Navigation = ({ sections, activeSection, onNavigate }) => {
             <button
                 className={`go-back-btn ${showGoBack ? 'visible' : ''}`}
                 onClick={handleGoBack}
-                style={{ borderRadius: "50%", backgroundColor: "#2c3082", color: "#ffffff" }}>
+                style={{ borderRadius: "50%", backgroundColor: "black", color: "#ffffff" }}>
                 Go back
             </button>
             <nav className="navigation">

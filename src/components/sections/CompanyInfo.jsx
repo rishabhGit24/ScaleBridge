@@ -4,16 +4,9 @@ const CompanyInfo = () => {
     return (
         <section className="company-info-section">
             <div className="company-info-container">
-                <div className="vision-card">
-                    <h2 className="section-title" style={{ fontSize: "4em", fontWeight: "850" }}>Company Vision</h2>
-                    <p className="vision-text" style={{ fontSize: "1.4em", fontWeight: "700" }}>
-                        "To empower enterprises with lean, intelligent finance operations that drive
-                        clarity, agility, scalability leveraging Lean processes and technology"
-                    </p>
-                </div>
 
                 <div className="who-we-are-card" style={{ marginTop: "5em", minHeight: "35sem", padding: "3em 4em 2em 4em" }}>
-                    <h2 className="section-title-white" style={{ maxWidth: "6em", fontSize: "4em", fontWeight: "850", paddingBottom: "30px" }}>Who are we? What do we do?</h2>
+                    <h2 className="section-title-white" style={{ maxWidth: "4.5em", fontSize: "4em", fontWeight: "850", paddingBottom: "30px" }}>Who are we? What do we do?</h2>
                     <p className="description-text" style={{ fontSize: "1.4em", fontWeight: "400" }}>
                         We are finance transformation architects for micro and small enterprises.
                         Specialists in finance operations redesign, from book closure to forecasting.
