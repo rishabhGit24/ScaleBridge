@@ -72,7 +72,6 @@
   width: 100%;
   width: 600px;
   height: 750px;
-  border: 2px solid #e0e0e0;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -80,6 +79,7 @@
   background-color: #fafafa;
   margin-left: 1.5em;
   margin-top: -8em;
+  margin-right: -15em;
 }
 
 .illustration-placeholder span {
