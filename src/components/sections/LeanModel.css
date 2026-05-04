@@ -5,7 +5,7 @@
 }
 
 .lean-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -17,78 +17,43 @@
 }
 
 .lean-subtitle {
-  margin-bottom: 30px;
-}
-
-.lean-subtitle p {
-  font-size: 1.5em;
+  font-size: 1.8em;
+  font-weight: 400;
   color: #000;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.lean-subtitle .highlight-text {
-  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .lean-description {
-  font-size: 1.1em;
+  font-size: 1.4em;
+  font-weight: 600;
   line-height: 1.6;
-  color: #333;
-  margin-bottom: 40px;
+  color: #000;
+  margin-bottom: 60px;
+  max-width: 1000px;
 }
 
-.infographic-placeholder-lean {
+.chart-container {
   width: 100%;
-  height: 400px;
-  border-radius: 20px;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  background: #f5f5f5;
+  border-radius: 30px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f9f9f9;
-  margin-bottom: 40px;
-  overflow: hidden;
 }
 
-.infographic-image-lean {
+.chart-image {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
-}
-
-.lean-content {
-  margin-bottom: 50px;
-}
-
-.content-intro {
-  font-size: 1.1em;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.features-list {
-  list-style: none;
-  padding-left: 20px;
-  margin-bottom: 30px;
-}
-
-.features-list li {
-  font-size: 1em;
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-.content-description {
-  font-size: 1em;
-  line-height: 1.6;
-  margin-bottom: 30px;
 }
 
 .departments-section {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  margin-top: 50px;
 }
 
 .department-block {
@@ -100,6 +65,7 @@
 .department-title {
   font-size: 2em;
   font-weight: 700;
+  color: #000;
   margin: 0;
   line-height: 1.2;
 }
@@ -115,6 +81,7 @@
 
 .department-list li {
   font-size: 1.1em;
+  color: #666;
   line-height: 1.6;
   padding: 0;
   margin: 0;
@@ -130,16 +97,18 @@
     margin-bottom: 30px;
   }
 
-  .lean-subtitle p {
-    font-size: 1.2em;
+  .lean-subtitle {
+    font-size: 1.4em;
   }
 
   .lean-description {
     font-size: 1em;
+    margin-bottom: 40px;
   }
 
-  .infographic-placeholder-lean {
-    height: 300px;
+  .chart-container {
+    padding: 20px;
+    margin-bottom: 60px;
   }
 
   .departments-section {

@@ -1,3 +1,4 @@
+import chart from '../../assets/Lean Model/chart.png';
 import './LeanModel.css';
 
 const LeanModel = () => {
@@ -36,6 +37,16 @@ const LeanModel = () => {
         <section className="lean-section">
             <div className="lean-container">
                 <h2 className="lean-title">Lean Model</h2>
+
+                <h3 className="lean-subtitle">Agility and change management</h3>
+
+                <p className="lean-description">
+                    Revolutionize your MSME finances! We streamline operations, provide management clarity, and drive better decisions. From mess to mastery. Book your consultation- one call changes everything!
+                </p>
+
+                <div className="chart-container">
+                    <img src={chart} alt="Lean Model Chart" className="chart-image" />
+                </div>
 
                 <div className="departments-section">
                     {departments.map((dept, index) => (
