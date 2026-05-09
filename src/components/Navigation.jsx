@@ -50,26 +50,24 @@ const Navigation = ({ sections, activeSection, onNavigate, isLaptop, visionRef }
                     <span></span>
                 </button>
 
-                {/* Slide-in drawer */}
-                {mobileMenuOpen && (
-                    <>
-                        <div
-                            className="mobile-overlay"
-                            onClick={() => setMobileMenuOpen(false)}
-                        />
-                        <div className="mobile-drawer">
-                            {sections.map((section) => (
-                                <button
-                                    key={section.id}
-                                    className={`mobile-nav-item ${activeSection === section.id ? 'active' : ''}`}
-                                    onClick={() => handleMobileNav(section.id)}
-                                >
-                                    {section.label}
-                                </button>
-                            ))}
-                        </div>
-                    </>
-                )}
+                {/* Overlay — always rendered, fades in/out */}
+                <div
+                    className={`mobile-overlay ${mobileMenuOpen ? 'open' : ''}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                />
+
+                {/* Drawer — always rendered, slides in/out */}
+                <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+                    {sections.map((section) => (
+                        <button
+                            key={section.id}
+                            className={`mobile-nav-item ${activeSection === section.id ? 'active' : ''}`}
+                            onClick={() => handleMobileNav(section.id)}
+                        >
+                            {section.label}
+                        </button>
+                    ))}
+                </div>
             </>
         );
     }
