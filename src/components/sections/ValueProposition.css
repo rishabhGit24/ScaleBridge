@@ -123,3 +123,67 @@
     font-size: 0.95em;
   }
 }
+
+/* ── MOBILE VALUE PROPOSITION ───────────────────────────────── */
+.value-section--mobile {
+  background: #fff;
+  padding: 40px 20px 60px;
+}
+
+.value-mobile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.value-mobile-title {
+  font-size: 2.4em;
+  font-weight: 900;
+  color: #000;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.value-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.value-mobile-card {
+  background: #f5f0ff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.value-mobile-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.value-mobile-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.value-mobile-card-title {
+  font-size: 1em;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.value-mobile-card-desc {
+  font-size: 0.88em;
+  color: #444;
+  line-height: 1.55;
+  margin: 0;
+}

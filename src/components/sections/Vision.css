@@ -251,3 +251,126 @@
     font-size: 0.85em;
   }
 }
+
+/* ── MOBILE VISION ──────────────────────────────────────────── */
+.vision-section--mobile {
+  background: #fff;
+  padding: 32px 20px 24px;
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.vision-mobile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Logo + brand */
+.vision-mobile-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.vision-mobile-logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.vision-mobile-name {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+/* Quote — full width */
+.vision-mobile-quote {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #000;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Nav pills + illustrations two-column */
+.vision-mobile-nav-illus {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Left column: nav pills — auto width, not stretched */
+.vision-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.vision-mobile-nav-btn {
+  background: transparent;
+  border: 1.5px solid #ccc;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  width: auto;
+  display: block;
+  height: 46px;
+  line-height: 1;
+}
+
+.vision-mobile-nav-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.vision-mobile-nav-btn:hover:not(.active) {
+  background: #f0f0f0;
+}
+
+/* Right column: illustrations — each slot same height as button + gap */
+.vision-mobile-illus {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Each slot is same height as the nav button so they align row-by-row */
+.vision-mobile-illus-item {
+  height: 46px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* Empty slot for nav items without an illustration */
+.vision-mobile-illus-item.empty {
+  visibility: hidden;
+}
+
+/* Images are larger than the slot — they overlap into the gap, like the design */
+.vision-mobile-illus-img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
+}

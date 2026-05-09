@@ -36,3 +36,17 @@
     scroll-snap-stop: normal;
   }
 }
+
+@media (max-width: 767px) {
+  .main-content {
+    padding-top: 0;
+  }
+
+  /* Remove min-height and disable the translate animation on mobile
+     to prevent phantom spacing between sections */
+  .section-wrapper {
+    min-height: unset;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

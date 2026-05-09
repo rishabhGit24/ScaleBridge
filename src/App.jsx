@@ -11,6 +11,7 @@ import Vision from './components/sections/Vision';
 function App() {
     const [activeSection, setActiveSection] = useState('vision');
     const [bgOpacity, setBgOpacity] = useState(0);
+    const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 768);
     const sectionRefs = useRef({});
 
     const sections = [
@@ -21,6 +22,14 @@ function App() {
         { id: 'lean', label: 'Lean models', component: LeanModel },
         { id: 'contact', label: 'Co-ordinates', component: Coordinates }
     ];
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsLaptop(window.innerWidth >= 768);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         // Set initial background color
@@ -53,7 +62,7 @@ function App() {
     const handleNavigation = (sectionId) => {
         const element = sectionRefs.current[sectionId];
         if (element) {
-            const navbarHeight = 200; // Adjust this value based on your navbar height + desired spacing
+        const navbarHeight = 190; // navbar height + small breathing room
             const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
             const offsetPosition = elementPosition - navbarHeight;
 
@@ -119,13 +128,15 @@ function App() {
     return (
         <div className="app" style={{
             backgroundColor: bgOpacity === 0 ? '#ffffff' : '#f6fcffb8',
-            maxWidth: "70em",
+            maxWidth: isLaptop ? "70em" : "100%",
             margin: "0 auto"
         }}>
             <Navigation
                 sections={sections}
                 activeSection={activeSection}
                 onNavigate={handleNavigation}
+                isLaptop={isLaptop}
+                visionRef={sectionRefs}
             />
             <main className="main-content">
                 {sections.map(({ id, component: Component }) => (
@@ -135,7 +146,12 @@ function App() {
                         data-section={id}
                         className="section-wrapper"
                     >
-                        <Component />
+                        <Component
+                            isLaptop={isLaptop}
+                            sections={sections}
+                            activeSection={activeSection}
+                            onNavigate={handleNavigation}
+                        />
                     </section>
                 ))}
             </main>

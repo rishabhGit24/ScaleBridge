@@ -1,9 +1,9 @@
 .coordinates-section {
   min-height: calc(100vh - 80px);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 80px 20px;
+  padding: 80px 20px  20px;
 }
 
 .coordinates-container {
@@ -15,7 +15,8 @@
   font-size: 42px;
   font-weight: 700;
   color: #0d110f;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
+  margin-top: 80px;
 }
 
 .contact-form {
@@ -133,7 +134,7 @@
 }
 
 .reach-out-section {
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -196,12 +197,59 @@
   pointer-events: auto;
 }
 
-.qr-label {
+/* Phone/email icon tooltip — appears above, single line */
+.social-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.social-icon-wrapper .phone-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
   font-size: 12px;
-  font-weight: 600;
-  color: #000;
-  margin: 0;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+/* For long email — wraps into 2 lines, centered above */
+.social-icon-wrapper.email-wrapper .phone-tooltip {
+  white-space: normal;
+  width: 240px;
   text-align: center;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.social-icon-wrapper .phone-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #000;
+}
+
+/* Email arrow stays centered */
+.social-icon-wrapper.email-wrapper .phone-tooltip::after {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.social-icon-wrapper:hover .phone-tooltip {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -252,4 +300,222 @@
     width: 18px;
     height: 18px;
   }
+}
+
+/* ── MOBILE CO-ORDINATES ────────────────────────────────────── */
+.coordinates-section--mobile {
+  background: #fff;
+  padding: 40px 24px 48px;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.coord-mobile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.coord-mobile-title {
+  font-size: 2.2em;
+  font-weight: 900;
+  color: #000;
+  margin: 2em 0 32px;
+}
+
+.coord-mobile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+}
+
+.coord-mobile-input {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 15px;
+  color: #000;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.coord-mobile-input::placeholder {
+  color: #999;
+  font-size: 15px;
+}
+
+.coord-mobile-input:focus {
+  border-bottom-color: #744b9e;
+}
+
+/* Send button row — right-aligned */
+.coord-mobile-send-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.coord-mobile-send-btn {
+  background: #744b9e;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s ease;
+}
+
+.coord-mobile-send-btn:hover:not(:disabled) {
+  background: #8a5bb5;
+}
+
+.coord-mobile-send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* The white dot inside the send button (toggle-style from design) */
+.coord-mobile-send-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+/* Reach out */
+.coord-mobile-reach {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.coord-mobile-reach-text {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+
+.coord-mobile-socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.coord-mobile-icon-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #744b9e;
+  color: #744b9e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.coord-mobile-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.coord-mobile-icon-btn:hover {
+  background: #744b9e;
+  color: #fff;
+}
+
+.coord-mobile-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.coord-mobile-qr img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.coord-mobile-qr p {
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  text-align: center;
+}
+
+/* Mobile phone/email icon tooltip — appears above, single line */
+.coord-mobile-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.coord-mobile-icon-wrapper .phone-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+/* For long email on mobile */
+.coord-mobile-icon-wrapper.email-wrapper .phone-tooltip {
+  white-space: normal;
+  width: 180px;
+  text-align: center;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.coord-mobile-icon-wrapper .phone-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #000;
+}
+
+.coord-mobile-icon-wrapper.email-wrapper .phone-tooltip::after {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.coord-mobile-icon-wrapper:hover .phone-tooltip,
+.coord-mobile-icon-wrapper:focus-within .phone-tooltip {
+  opacity: 1;
 }
