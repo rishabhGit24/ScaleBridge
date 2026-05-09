@@ -117,14 +117,14 @@ const Coordinates = ({ isLaptop }) => {
                                 className="coord-mobile-send-btn"
                                 disabled={isSubmitting}
                             >
-                                <span className="coord-mobile-send-dot"></span>
+                                <FontAwesomeIcon icon={faPaperPlane} className="btn-icon" />
                                 {isSubmitting ? 'Sending...' : 'Send'}
                             </button>
                         </div>
                     </form>
 
                     {/* Reach out */}
-                    <div className="coord-mobile-reach">
+                    <div className="coord-mobile-reach"  style={{marginBottom: isLaptop?"":"6em"}}>
                         <p className="coord-mobile-reach-text">Want to know more? reach out to us!</p>
                         <div className="coord-mobile-socials">
                             <div className="coord-mobile-icon-wrapper">

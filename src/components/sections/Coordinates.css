@@ -386,16 +386,6 @@
   cursor: not-allowed;
 }
 
-/* The white dot inside the send button (toggle-style from design) */
-.coord-mobile-send-dot {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #fff;
-  flex-shrink: 0;
-  opacity: 0.9;
-}
-
 /* Reach out */
 .coord-mobile-reach {
   display: flex;
