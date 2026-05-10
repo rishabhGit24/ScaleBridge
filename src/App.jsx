@@ -11,7 +11,11 @@ import Vision from './components/sections/Vision';
 function App() {
     const [activeSection, setActiveSection] = useState('vision');
     const [bgOpacity, setBgOpacity] = useState(0);
-    const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 768);
+    const [isLaptop, setIsLaptop] = useState(() => {
+        // Use clientWidth which is more reliable on mobile browsers
+        const width = document.documentElement.clientWidth || window.innerWidth;
+        return width >= 768;
+    });
     const sectionRefs = useRef({});
 
     const sections = [
