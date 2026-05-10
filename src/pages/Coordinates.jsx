@@ -8,7 +8,10 @@ import locales from '../config/locales.json';
 import { COORDINATES_STYLES, FORM_INITIAL_STATE } from '../config/constants';
 
 const Coordinates = ({ isLaptop }) => {
-    const [formData, setFormData] = useState(FORM_INITIAL_STATE);
+    const [formData, setFormData] = useState({
+        ...FORM_INITIAL_STATE,
+        honeypot: ''
+    });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
@@ -24,6 +27,11 @@ const Coordinates = ({ isLaptop }) => {
         setIsSubmitting(true);
         setSubmitStatus({ type: '', message: '' });
 
+        if (formData.honeypot) {
+            setIsSubmitting(false);
+            return;
+        }
+
         try {
             const response = await fetch(`${API_URL}/contacts`, {
                 method: 'POST',
@@ -38,11 +46,12 @@ const Coordinates = ({ isLaptop }) => {
                     type: 'success',
                     message: locales.coordinates.messages.success
                 });
-                setFormData(FORM_INITIAL_STATE);
+                setFormData({ ...FORM_INITIAL_STATE, honeypot: '' });
             } else {
+                const errorMessage = data.message || locales.coordinates.messages.error;
                 setSubmitStatus({
                     type: 'error',
-                    message: data.message || locales.coordinates.messages.error
+                    message: errorMessage
                 });
             }
         } catch (error) {
@@ -71,12 +80,23 @@ const Coordinates = ({ isLaptop }) => {
                     <form className="coord-mobile-form" onSubmit={handleSubmit}>
                         <input
                             type="text"
+                            name="honeypot"
+                            value={formData.honeypot}
+                            onChange={handleChange}
+                            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+                            tabIndex="-1"
+                            autoComplete="off"
+                            aria-hidden="true"
+                        />
+                        <input
+                            type="text"
                             name="name"
                             placeholder={locales.coordinates.form.namePlaceholder}
                             value={formData.name}
                             onChange={handleChange}
                             className="coord-mobile-input"
                             required
+                            maxLength="100"
                         />
                         <input
                             type="text"
@@ -85,6 +105,7 @@ const Coordinates = ({ isLaptop }) => {
                             value={formData.company}
                             onChange={handleChange}
                             className="coord-mobile-input"
+                            maxLength="200"
                         />
                         <input
                             type="email"
@@ -94,6 +115,7 @@ const Coordinates = ({ isLaptop }) => {
                             onChange={handleChange}
                             className="coord-mobile-input"
                             required
+                            maxLength="255"
                         />
                         <input
                             type="tel"
@@ -103,6 +125,7 @@ const Coordinates = ({ isLaptop }) => {
                             onChange={handleChange}
                             className="coord-mobile-input"
                             required
+                            maxLength="20"
                         />
 
                         <div className="coord-mobile-send-row">
@@ -161,6 +184,16 @@ const Coordinates = ({ isLaptop }) => {
                 )}
 
                 <form className="contact-form" onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="honeypot"
+                        value={formData.honeypot}
+                        onChange={handleChange}
+                        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+                        tabIndex="-1"
+                        autoComplete="off"
+                        aria-hidden="true"
+                    />
                     <div className="form-row">
                         <input
                             type="text"
@@ -170,6 +203,7 @@ const Coordinates = ({ isLaptop }) => {
                             onChange={handleChange}
                             className="form-input"
                             required
+                            maxLength="100"
                         />
                         <input
                             type="text"
@@ -178,6 +212,7 @@ const Coordinates = ({ isLaptop }) => {
                             value={formData.company}
                             onChange={handleChange}
                             className="form-input"
+                            maxLength="200"
                         />
                     </div>
 
@@ -190,6 +225,7 @@ const Coordinates = ({ isLaptop }) => {
                             onChange={handleChange}
                             className="form-input"
                             required
+                            maxLength="255"
                         />
                         <input
                             type="tel"
@@ -199,6 +235,7 @@ const Coordinates = ({ isLaptop }) => {
                             onChange={handleChange}
                             className="form-input"
                             required
+                            maxLength="20"
                         />
                     </div>
                     <button type="submit" className="send-btn" disabled={isSubmitting}>

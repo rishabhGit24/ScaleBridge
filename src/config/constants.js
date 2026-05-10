@@ -115,7 +115,8 @@ export const FORM_INITIAL_STATE = {
   company: '',
   email: '',
   phone: '',
-  message: ''
+  message: '',
+  honeypot: ''
 };
 
 export const HOVER_TIMEOUT = 120;
