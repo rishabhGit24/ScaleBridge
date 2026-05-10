@@ -221,6 +221,7 @@
   gap: 0;
   overflow: visible;
   width: 100%;
+  padding: 2em 2em;
 }
 
 /* Left: nav pills */
