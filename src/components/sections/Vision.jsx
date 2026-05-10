@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import illus1 from '../../assets/landing-page-illustration/illus1.png';
 import illus2 from '../../assets/landing-page-illustration/illus2.png';
 import illus3 from '../../assets/landing-page-illustration/illus3.png';
@@ -5,26 +6,35 @@ import illus4 from '../../assets/landing-page-illustration/illus4.png';
 import logo from '../../assets/logo.png';
 import './Vision.css';
 
+const labels = [
+    "Faster book closure",
+    "Insightful management reporting",
+    "Process re-engineering for efficiency",
+    "GCC"
+];
+
 const Vision = ({ isLaptop, sections, activeSection, onNavigate }) => {
     const illustrations = [
-        { img: illus1 },
-        { img: illus2 },
-        { img: illus3 },
-        { img: illus4 },
+        { img: illus1, label: labels[0] },
+        { img: illus2, label: labels[1] },
+        { img: illus3, label: labels[2] },
+        { img: illus4, label: labels[3] },
     ];
+
+    const [activeIllus, setActiveIllus] = useState(null);
 
     // ── MOBILE LAYOUT ────────────────────────────────────────────
     if (!isLaptop) {
-        // Build illustration slots — 4 images for first 4 nav items, empty for last 2
         const illustrationSlots = sections
             ? sections.map((section, index) => ({
                   id: section.id,
-                  img: illustrations[index] ? illustrations[index].img : null
+                  img: illustrations[index] ? illustrations[index].img : null,
+                  label: illustrations[index] ? illustrations[index].label : null,
               }))
-            : illustrations.map((item) => ({ img: item.img }));
+            : illustrations.map((item) => ({ img: item.img, label: item.label }));
 
         return (
-            <section className="vision-section vision-section--mobile" style={{marginTop: isLaptop?"":"2em"}}>
+            <section className="vision-section vision-section--mobile">
                 <div className="vision-mobile-container">
 
                     {/* Logo + Brand name */}
@@ -34,12 +44,13 @@ const Vision = ({ isLaptop, sections, activeSection, onNavigate }) => {
                     </div>
 
                     {/* Quote */}
-                    <p className="vision-mobile-quote"style={{paddingTop: isLaptop?"":"2em"}}>
+                    <p className="vision-mobile-quote">
                         "To empower enterprises with lean, intelligent finance operations that drive clarity, agility, scalability leveraging Lean processes and technology"
                     </p>
 
                     {/* Nav pills + illustrations side by side */}
                     <div className="vision-mobile-nav-illus">
+
                         {/* Left: nav pills */}
                         <div className="vision-mobile-nav">
                             {sections && sections.map((section) => (
@@ -53,28 +64,27 @@ const Vision = ({ isLaptop, sections, activeSection, onNavigate }) => {
                             ))}
                         </div>
 
-                        {/* Right: illustration slots aligned to each nav row */}
+                        {/* Right: illustrations — tap to show label above */}
                         <div className="vision-mobile-illus">
                             {illustrationSlots.map((slot, index) => (
                                 <div
-    key={index}
-    className={`vision-mobile-illus-item${!slot.img ? ' empty' : ''}`}
-    style={{
-        width: isLaptop ? '' : '15em',
-        marginBottom: isLaptop ? '' : '3em'
-    }}
->
-    {slot.img && (
-        <img
-            src={slot.img}
-            alt=""
-            className="vision-mobile-illus-img"
-            style={{
-                width: isLaptop ? '' : '10em'
-            }}
-        />
-    )}
-</div>
+                                    key={index}
+                                    className={`vision-mobile-illus-item${!slot.img ? ' empty' : ''}`}
+                                    onClick={() => slot.img && setActiveIllus(activeIllus === index ? null : index)}
+                                >
+                                    {slot.img && (
+                                        <>
+                                            <span className={`vision-mobile-illus-label${activeIllus === index ? ' visible' : ''}`}>
+                                                {slot.label}
+                                            </span>
+                                            <img
+                                                src={slot.img}
+                                                alt={slot.label}
+                                                className="vision-mobile-illus-img"
+                                            />
+                                        </>
+                                    )}
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -105,12 +115,12 @@ const Vision = ({ isLaptop, sections, activeSection, onNavigate }) => {
                                 <div className="illustration-wrapper">
                                     <img
                                         src={item.img}
-                                        alt=""
+                                        alt={item.label}
                                         className="illustration-image"
                                     />
                                 </div>
                                 <div className="illustration-label">
-                                    {['Faster book closure', 'Insightful management reporting', 'Process re-engineering for efficiency', 'GCC'][index]}
+                                    {item.label}
                                 </div>
                             </div>
                         ))}

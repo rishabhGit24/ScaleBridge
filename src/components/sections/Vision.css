@@ -124,142 +124,56 @@
 }
 
 @media (max-width: 1200px) {
-  .vision-container {
-    gap: 60px;
-  }
-
-  .vision-quote p {
-    font-size: 16px;
-  }
-
-  .company-name {
-    font-size: 42px;
-  }
-
-  .logo-image {
-    width: 14em;
-  }
-
-  .illustrations-stack {
-    max-width: 350px;
-    gap: 35px;
-  }
-
-  .illustration-wrapper {
-    width: 100px;
-    height: 100px;
-  }
+  .vision-container { gap: 60px; }
+  .vision-quote p { font-size: 16px; }
+  .company-name { font-size: 42px; }
+  .logo-image { width: 14em; }
+  .illustrations-stack { max-width: 350px; gap: 35px; }
+  .illustration-wrapper { width: 100px; height: 100px; }
 }
 
 @media (max-width: 968px) {
-  .vision-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .vision-left {
-    min-height: auto;
-    padding: 20px 0;
-  }
-
-  .vision-quote {
-    padding-right: 0;
-    margin-right: 0;
-  }
-
-  .vision-quote p {
-    text-align: center;
-    font-size: 16px;
-  }
-
-  .logo-container {
-    align-items: center;
-    margin-left: 0;
-  }
-
-  .illustration-container {
-    order: -1;
-  }
-
-  .illustrations-stack {
-    max-width: 100%;
-  }
-
-  .company-name {
-    font-size: 38px;
-  }
-
-  .logo-image {
-    width: 12em;
-  }
+  .vision-container { grid-template-columns: 1fr; gap: 40px; }
+  .vision-left { min-height: auto; padding: 20px 0; }
+  .vision-quote { padding-right: 0; margin-right: 0; }
+  .vision-quote p { text-align: center; font-size: 16px; }
+  .logo-container { align-items: center; margin-left: 0; }
+  .illustration-container { order: -1; }
+  .illustrations-stack { max-width: 100%; }
+  .company-name { font-size: 38px; }
+  .logo-image { width: 12em; }
 }
 
 @media (max-width: 768px) {
-  .vision-section {
-    padding: 30px 15px;
-  }
-
-  .vision-quote p {
-    font-size: 15px;
-  }
-
-  .company-name {
-    font-size: 32px;
-  }
-
-  .logo-image {
-    width: 10em;
-  }
-
-  .illustrations-stack {
-    gap: 30px;
-  }
-
-  .illustration-wrapper {
-    width: 80px;
-    height: 80px;
-  }
-
-  .illustration-label {
-    font-size: 0.95em;
-  }
+  .vision-section { padding: 30px 15px; }
+  .vision-quote p { font-size: 15px; }
+  .company-name { font-size: 32px; }
+  .logo-image { width: 10em; }
+  .illustrations-stack { gap: 30px; }
+  .illustration-wrapper { width: 80px; height: 80px; }
+  .illustration-label { font-size: 0.95em; }
 }
 
 @media (max-width: 480px) {
-  .vision-quote p {
-    font-size: 14px;
-  }
-
-  .company-name {
-    font-size: 28px;
-  }
-
-  .logo-image {
-    width: 8em;
-  }
-
-  .illustrations-stack {
-    gap: 25px;
-  }
-
-  .illustration-wrapper {
-    width: 70px;
-    height: 70px;
-  }
-
-  .illustration-label {
-    font-size: 0.85em;
-  }
+  .vision-quote p { font-size: 14px; }
+  .company-name { font-size: 28px; }
+  .logo-image { width: 8em; }
+  .illustrations-stack { gap: 25px; }
+  .illustration-wrapper { width: 70px; height: 70px; }
+  .illustration-label { font-size: 0.85em; }
 }
 
 /* ── MOBILE VISION ──────────────────────────────────────────── */
 .vision-section--mobile {
   background: #fff;
-  padding: 32px 20px 24px;
+  padding: 32px 16px 24px;
   margin-top: 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  overflow: visible;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .vision-mobile-container {
@@ -290,28 +204,30 @@
   margin: 0;
 }
 
-/* Quote — full width */
+/* Quote */
 .vision-mobile-quote {
   font-size: 14px;
   line-height: 1.65;
   color: #000;
   font-weight: 400;
-  margin: 0;
+  margin: 0 0 40px;
 }
 
-/* Nav pills + illustrations two-column */
+/* Two-column: nav pills left, illustrations right */
 .vision-mobile-nav-illus {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 16px;
+  gap: 0;
+  overflow: visible;
+  width: 100%;
 }
 
-/* Left column: nav pills — auto width, not stretched */
+/* Left: nav pills */
 .vision-mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
@@ -319,17 +235,16 @@
   background: transparent;
   border: 1.5px solid #ccc;
   border-radius: 30px;
-  padding: 12px 24px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 13px;
   font-weight: 500;
   color: #000;
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease;
   white-space: nowrap;
-  width: auto;
   display: block;
-  height: 46px;
+  height: 42px;
   line-height: 1;
 }
 
@@ -343,34 +258,64 @@
   background: #f0f0f0;
 }
 
-/* Right column: illustrations — each slot same height as button + gap */
+/* Right: illustrations column — takes remaining space, pushed right */
 .vision-mobile-illus {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
-  flex-shrink: 0;
+  flex: 1;
+  overflow: visible;
+  padding-left: 8px;
 }
 
-/* Each slot is same height as the nav button so they align row-by-row */
+/* Each slot: label above image, stacked */
 .vision-mobile-illus-item {
-  height: 46px;
-  width: 110px;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: visible;
+  cursor: pointer;
+  gap: 2px;
+  min-height: 42px;
 }
 
-/* Empty slot for nav items without an illustration */
 .vision-mobile-illus-item.empty {
   visibility: hidden;
+  cursor: default;
 }
 
-/* Images are larger than the slot — they overlap into the gap, like the design */
+/* Label above image — hidden until tapped, then slides in */
+.vision-mobile-illus-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  white-space: normal;
+  max-width: 100px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.35s ease, max-height 0.35s ease;
+  line-height: 1.3;
+}
+
+.vision-mobile-illus-label.visible {
+  opacity: 1;
+  max-height: 48px;
+}
+
+/* Images — big */
 .vision-mobile-illus-img {
-  width: 110px;
-  height: 110px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.vision-mobile-illus-item:active .vision-mobile-illus-img {
+  transform: scale(1.1);
 }
