@@ -1,0 +1,204 @@
+{
+  "app": {
+    "sections": [
+      {
+        "id": "vision",
+        "label": "Vision"
+      },
+      {
+        "id": "company",
+        "label": "Who we are"
+      },
+      {
+        "id": "board",
+        "label": "Board"
+      },
+      {
+        "id": "value",
+        "label": "Value proposition"
+      },
+      {
+        "id": "lean",
+        "label": "Lean models"
+      },
+      {
+        "id": "contact",
+        "label": "Co-ordinates"
+      }
+    ]
+  },
+  "vision": {
+    "companyName": "ScaleBridge",
+    "quote": "To empower enterprises with lean, intelligent finance operations that drive clarity, agility, scalability leveraging Lean processes and technology",
+    "illustrations": [
+      "Faster book closure",
+      "Insightful management reporting",
+      "Process re-engineering for efficiency",
+      "GCC"
+    ]
+  },
+  "company": {
+    "title": "Who are we? What do we do?",
+    "titleMobile": "Who we are?\nWhat do we\ndo?",
+    "description": "We are finance transformation architects for micro and small enterprises. Specialists in finance operations redesign, from book closure to forecasting. We help build lean frameworks processes that simplify complexity, engaging with enterprises existing resources, people and deliver board room ready insights in weeks, not months."
+  },
+  "board": {
+    "title": "Board and\nCo-founders",
+    "members": [
+      {
+        "id": 1,
+        "name": "Manjunath S",
+        "position": "Managing Director and CEO",
+        "about": "30 years of experience in Corporate Finance Leadership roles at Tata Advanced Materials, Siemens, Aricent (Formerly Hughes Software), Dell India Pvt Ltd and Axis Cades Technologies Ltd. He has Led successful teams in Operational finance, ERP implementation, treasury management, Consolidation, Audits, MIS, payroll & compliance of multi country world wide. He is a Commerce Graduate with Masters in Business Administration"
+      },
+      {
+        "id": 2,
+        "name": "Sunil N P",
+        "position": "Director and Chief Operating Officer",
+        "about": "Senior finance and operations executive with 25+ years in technology companies SAP, Mercury Interactive, EASi Software, specializing in SAP ERP and Quote-to-Cash. Leads cross-functional teams to drive digital transformation, process automation, and DSO reduction. Proven track record in mitigating revenue risk and improving cash flow, forecasting accuracy, compliance, and operational efficiency. He is a Commerce Graduate with Masters in Business Administration"
+      },
+      {
+        "id": 3,
+        "name": "D N Narasimhaprasad",
+        "position": "Director and Vice President, Business Development",
+        "about": "Transformational Finance Leader with 30 years of MNC experience in Oracle & Wipro, built Elite Business Finance teams and FP&A GCC, Led enterprise finance transformations, deployed systems that compressed close cycles, sharpened forecasts, and delivered measurable cost‑to‑income gains. A trusted partner to C‑suite to convert Cross functional data into strategic growth decision. He is a Qualified CMA with Masters in Business Administration (EPGP) from IIM, Bangalore."
+      },
+      {
+        "id": 4,
+        "name": "Srinath M Kulkarni",
+        "position": "Director and Vice President, Business Development",
+        "about": "Seasoned finance Leader with 28+ years in global finance in Top Companies Oracle, Thomson Reuters in areas of FP&A, business partnering, and reporting across Geographies. Expert in Revenue/OPEX forecasting, KPI design, finance transformation and centralization. He has Lead many transformation projects, process development, tools implementation and has built High performing teams driving accuracy and operational efficiency. He holds A Master Degree in Commerce with an additional MSc (Yoga)"
+      },
+      {
+        "id": 5,
+        "name": "Ramakanth R",
+        "position": "Director and Vice President, Business Development",
+        "about": "A Senior Auditor and Tax Consultant with 30 years of exceptional experience and Leading edge expertise in the areas of Management Advisory, Audits and Assurance, Consultation in Direct Taxation, Indirect Taxes- Goods & Services Tax, Tax litigations, Appellate Tribunal, Company Secretarial Works and Transaction Advisory Services. He is a Commerce Graduate with CA (inter)"
+      }
+    ],
+    "aboutButton": "About"
+  },
+  "value": {
+    "title": "Value\nProposition",
+    "propositions": [
+      {
+        "title": "Efficiency First",
+        "description": "Remove wasteful steps in finance operations, focus on essentials"
+      },
+      {
+        "title": "Smart Reporting",
+        "description": "Automated dashboards and KPI frameworks for real-time visibility"
+      },
+      {
+        "title": "Clarity for Leaders",
+        "description": "Visual storytelling that makes numbers easy to understand"
+      },
+      {
+        "title": "Outcome Driven",
+        "description": "Faster closes, better cash management, and improved profitability"
+      },
+      {
+        "title": "Differentiator",
+        "description": "Unlike others, we focus on minimum viable model in weeks not months"
+      },
+      {
+        "title": "Scalability",
+        "description": "Framework adaptable across your company and diversified businesses"
+      }
+    ]
+  },
+  "lean": {
+    "title": "Lean Model",
+    "subtitle": "Agility and change management",
+    "description": "Revolutionize your MSME finances! We streamline operations, provide management clarity, and drive better decisions. From mess to mastery. Book your consultation- one call changes everything!",
+    "services": [
+      {
+        "title": "Turbo projects",
+        "subtitle": "",
+        "scope": [
+          "Assessment",
+          "Roadmap",
+          "Process",
+          "Build",
+          "Execute",
+          "Handhold",
+          "Continuous Improvement"
+        ],
+        "deliverables": "Watertight process for - Weekly KPI dashboard, monthly financial close, cash-flow reporting, Executive/Board-ready monthly pack.",
+        "outcomes": "Significant reduction in reporting time & efforts for Insightful intelligence for overall business predictability"
+      },
+      {
+        "title": "Lean Transformation - Expedite",
+        "subtitle": "(For companies ready to upgrade processes, forecasting, and tooling)",
+        "scope": [
+          "Diagnostics",
+          "Standardization Plan",
+          "Process",
+          "Develop Systems",
+          "Train",
+          "Implement",
+          "Support",
+          "Continuous Improvement"
+        ],
+        "deliverables": "Current-state assessment, Swift Roadmap, Collaborate with developers, Automated KPI dashboard, Scenario-driven forecasting models (Sales intelligence, Sales forecast, production forecast, Margin Forecast, Cash forecast and empower team)",
+        "outcomes": "Substantial reduction in manual reporting effort, real-time KPIs, faster strategic planning cycles"
+      },
+      {
+        "title": "Strategic Partnership - Finance Transformation",
+        "subtitle": "(For Businesses seeking long-term transformation & Build Finance GCC competency)",
+        "scope": [
+          "Re-Design FP&A – Budget/Forecast/Long Range Planning",
+          "Data Architecture",
+          "People & Processes",
+          "CXO/ Executive Insights"
+        ],
+        "deliverables": "Enterprise-grade FP&A platform setup, Policy / Governance framework, Management Insights / analytics, Upskill finance team, Periodic strategic / business reviews",
+        "outcomes": "Execution strategy for GCC Delivery, CXO / Board level analytics, Scenario-ready strategy planning, Measurable Profitability uplift from pricing / margin work"
+      },
+      {
+        "title": "Accounting and Compliance Services",
+        "subtitle": "",
+        "scope": [
+          "Book keeping, Accounting and HR Services",
+          "Compliance & Advisory Services",
+          "Direct and Indirect Taxes"
+        ],
+        "deliverables": "End to end services of Book keeping and Accounting ; Portfolio Management Services like financial advisory and planning ; End to end Payroll processing / management services ; Compliance and Advisory services of all Secretarial matters including Registrations and formation procedures under various applicable legislations ; Direct Taxation – Income Tax e-TDS Services; Indirect Taxation – GST (including compliances for all States); Appeals & Revisions for all tax matters; Corporate Taxation, ex-patriate taxation and likewise.",
+        "outcomes": "Time to Focus on Core business, substantial cost savings, better compliance, access to experts / specialized tools with scalable support"
+      }
+    ],
+    "scopeLabel": "Scope:",
+    "deliverablesLabel": "Deliverables:",
+    "outcomesLabel": "Outcomes:"
+  },
+  "coordinates": {
+    "title": "Co-ordinates",
+    "form": {
+      "namePlaceholder": "Name",
+      "companyPlaceholder": "Company",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Phone",
+      "messagePlaceholder": "Message",
+      "sendButton": "Send",
+      "sendingButton": "Sending..."
+    },
+    "reachOut": "Want to know more? reach out to us!",
+    "phone": "+91 98452 60450",
+    "email": "manjunathmurthy@scalebridgefas.com",
+    "instagram": "SCALEBRIDGE_FAS",
+    "messages": {
+      "success": "Thank you! Your message has been sent successfully.",
+      "error": "Failed to send message. Please try again.",
+      "networkError": "Network error. Please check your connection and try again."
+    },
+    "ariaLabels": {
+      "phone": "Phone",
+      "email": "Email"
+    }
+  },
+  "navigation": {
+    "ariaLabels": {
+      "openMenu": "Open menu"
+    }
+  }
+}

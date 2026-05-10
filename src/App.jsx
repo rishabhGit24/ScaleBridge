@@ -1,74 +1,38 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
-import BoardCoFounders from './components/sections/BoardCoFounders';
-import CompanyInfo from './components/sections/CompanyInfo';
-import Coordinates from './components/sections/Coordinates';
-import LeanModel from './components/sections/LeanModel';
-import ValueProposition from './components/sections/ValueProposition';
-import Vision from './components/sections/Vision';
+import BoardCoFounders from './pages/BoardCoFounders';
+import CompanyInfo from './pages/CompanyInfo';
+import Coordinates from './pages/Coordinates';
+import LeanModel from './pages/LeanModel';
+import ValueProposition from './pages/ValueProposition';
+import Vision from './pages/Vision';
+import { COLORS, DIMENSIONS, SCROLL_OFFSETS } from './config/constants';
+import locales from './config/locales.json';
+import { useResponsive } from './hooks/useResponsive';
+import { useScrollBackground } from './hooks/useScrollBackground';
+import { useAnimationObserver, useSectionObserver } from './hooks/useSectionObserver';
 
 function App() {
     const [activeSection, setActiveSection] = useState('vision');
-    const [bgOpacity, setBgOpacity] = useState(0);
-    const [isLaptop, setIsLaptop] = useState(() => {
-        // Use clientWidth which is more reliable on mobile browsers
-        const width = document.documentElement.clientWidth || window.innerWidth;
-        return width >= 768;
-    });
+    const isLaptop = useResponsive();
+    const bgOpacity = useScrollBackground();
     const sectionRefs = useRef({});
 
     const sections = [
-        { id: 'vision', label: 'Vision', component: Vision },
-        { id: 'company', label: 'Who we are', component: CompanyInfo },
-        { id: 'board', label: 'Board', component: BoardCoFounders },
-        { id: 'value', label: 'Value proposition', component: ValueProposition },
-        { id: 'lean', label: 'Lean models', component: LeanModel },
-        { id: 'contact', label: 'Co-ordinates', component: Coordinates }
+        { id: 'vision', label: locales.app.sections[0].label, component: Vision },
+        { id: 'company', label: locales.app.sections[1].label, component: CompanyInfo },
+        { id: 'board', label: locales.app.sections[2].label, component: BoardCoFounders },
+        { id: 'value', label: locales.app.sections[3].label, component: ValueProposition },
+        { id: 'lean', label: locales.app.sections[4].label, component: LeanModel },
+        { id: 'contact', label: locales.app.sections[5].label, component: Coordinates }
     ];
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsLaptop(window.innerWidth >= 768);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    useEffect(() => {
-        // Set initial background color
-        document.body.style.backgroundColor = '#ffffff';
-
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-
-            // Switch background color after scrolling 100px
-            if (scrollPosition > 100) {
-                setBgOpacity(1);
-                document.body.style.backgroundColor = '#f6fcffb8';
-            } else {
-                setBgOpacity(0);
-                document.body.style.backgroundColor = '#ffffff';
-            }
-        };
-
-        // Call once on mount to set initial state
-        handleScroll();
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            // Reset on unmount
-            document.body.style.backgroundColor = '';
-        };
-    }, []);
 
     const handleNavigation = (sectionId) => {
         const element = sectionRefs.current[sectionId];
         if (element) {
-        const navbarHeight = 190; // navbar height + small breathing room
             const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - navbarHeight;
+            const offsetPosition = elementPosition - SCROLL_OFFSETS.NAVBAR_HEIGHT;
 
             window.scrollTo({
                 top: offsetPosition,
@@ -78,61 +42,13 @@ function App() {
         }
     };
 
-    useEffect(() => {
-        const observerOptions = {
-            root: null,
-            rootMargin: '-200px 0px -50% 0px',
-            threshold: 0
-        };
-
-        const observerCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.dataset.section);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        Object.values(sectionRefs.current).forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        const animationObserverOptions = {
-            root: null,
-            rootMargin: '-100px 0px -100px 0px',
-            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
-        };
-
-        const animationObserverCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        };
-
-        const animationObserver = new IntersectionObserver(
-            animationObserverCallback,
-            animationObserverOptions
-        );
-
-        Object.values(sectionRefs.current).forEach((ref) => {
-            if (ref) animationObserver.observe(ref);
-        });
-
-        return () => animationObserver.disconnect();
-    }, []);
+    useSectionObserver(sectionRefs, setActiveSection);
+    useAnimationObserver(sectionRefs);
 
     return (
         <div className="app" style={{
-            backgroundColor: bgOpacity === 0 ? '#ffffff' : '#f6fcffb8',
-            maxWidth: isLaptop ? "70em" : "100%",
+            backgroundColor: bgOpacity === 0 ? COLORS.PRIMARY_BG : COLORS.SECONDARY_BG,
+            maxWidth: isLaptop ? DIMENSIONS.MAX_CONTENT_WIDTH : "100%",
             margin: "0 auto"
         }}>
             <Navigation

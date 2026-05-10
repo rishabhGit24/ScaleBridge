@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Navigation.css';
+import { SCROLL_OFFSETS } from '../config/constants';
+import locales from '../config/locales.json';
 
 const Navigation = ({ sections, activeSection, onNavigate, isLaptop, visionRef }) => {
     const [showGoBack, setShowGoBack] = useState(false);
@@ -8,18 +10,16 @@ const Navigation = ({ sections, activeSection, onNavigate, isLaptop, visionRef }
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > SCROLL_OFFSETS.HAMBURGER_SHOW) {
                 setShowGoBack(true);
             } else {
                 setShowGoBack(false);
             }
 
-            // Show hamburger as soon as user starts scrolling away from vision section
             if (visionRef && visionRef.current && visionRef.current['vision']) {
                 const visionEl = visionRef.current['vision'];
                 const visionTop = visionEl.getBoundingClientRect().top;
-                // Show once the vision section's top has scrolled above the viewport
-                setPastVision(visionTop < -50);
+                setPastVision(visionTop < SCROLL_OFFSETS.VISION_THRESHOLD);
             }
         };
         window.addEventListener('scroll', handleScroll);
@@ -32,31 +32,26 @@ const Navigation = ({ sections, activeSection, onNavigate, isLaptop, visionRef }
         setMobileMenuOpen(false);
     };
 
-    // ── MOBILE NAV ──────────────────────────────────────────────
     if (!isLaptop) {
-        // Only show hamburger after scrolling past the vision section
         if (!pastVision) return null;
 
         return (
             <>
-                {/* Hamburger button — fixed top-left */}
                 <button
                     className="mobile-hamburger"
                     onClick={() => setMobileMenuOpen((prev) => !prev)}
-                    aria-label="Open menu"
+                    aria-label={locales.navigation.ariaLabels.openMenu}
                 >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                {/* Overlay — always rendered, fades in/out */}
                 <div
                     className={`mobile-overlay ${mobileMenuOpen ? 'open' : ''}`}
                     onClick={() => setMobileMenuOpen(false)}
                 />
 
-                {/* Drawer — always rendered, slides in/out */}
                 <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
                     {sections.map((section) => (
                         <button
@@ -72,7 +67,6 @@ const Navigation = ({ sections, activeSection, onNavigate, isLaptop, visionRef }
         );
     }
 
-    // ── DESKTOP NAV (unchanged) ──────────────────────────────────
     return (
         <div className={`navigation-wrapper ${showGoBack ? 'centered' : ''}`}>
             <nav className="navigation">

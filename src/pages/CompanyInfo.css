@@ -1,0 +1,137 @@
+.company-info-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.company-info-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.vision-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff;
+  max-width: 900px;
+  text-align: left;
+  font-weight: 300 !important;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.who-we-are-card {
+  background-color: #744b9e;
+  border-radius: 40px;
+  padding: 60px 40px;
+  position: relative;
+  text-align: left;
+}
+
+.section-title-white {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.description-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-align: left;
+  font-weight: 300 !important;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.go-back-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background-color: #ffffff;
+  color: #2c3082;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.go-back-btn:hover {
+  background-color: #a49ded;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .section-title,
+  .section-title-white {
+    font-size: 28px;
+  }
+
+  .vision-text,
+  .description-text {
+    font-size: 16px;
+  }
+
+  .vision-card,
+  .who-we-are-card {
+    padding: 40px 30px;
+  }
+
+  .go-back-btn {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+/* ── MOBILE COMPANY INFO ────────────────────────────────────── */
+.company-info-section--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.company-mobile-card {
+  background: #744b9e;
+  border-radius: 28px;
+  padding: 36px 28px;
+  width: 100%;
+}
+
+.company-mobile-title {
+  font-size: 2.4em;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+
+.company-mobile-body {
+  font-size: 1em;
+  line-height: 1.75;
+  color: #fff;
+  font-weight: 400;
+}
