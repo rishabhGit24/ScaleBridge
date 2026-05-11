@@ -14,6 +14,8 @@ module.exports = {
   ALLOWED_ORIGINS: [
     "https://scale-bridge.vercel.app",
     "https://scale-bridge-frontend.vercel.app",
+    "https://www.scalebridgefas.com",
+    "https://scalebridgefas.com",
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:3000"

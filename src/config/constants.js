@@ -75,7 +75,7 @@ export const OBSERVER_OPTIONS = {
 };
 
 export const API_CONFIG = {
-  PROD_URL: 'https://www.scalebridgefas.com/api',
+  PROD_URL: 'https://scale-bridge-backend.vercel.app/api',
   DEV_URL: 'http://localhost:5000/api'
 };
 
