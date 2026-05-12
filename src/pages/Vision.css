@@ -111,7 +111,7 @@
   opacity: 0;
   transform: translateX(-20px);
   transition: all 0.4s ease;
-  white-space: nowrap;
+  white-space: pre-line;
 }
 
 .illustration-item:hover .illustration-image {
@@ -294,7 +294,7 @@
   font-weight: 600;
   color: #000;
   text-align: center;
-  white-space: normal;
+  white-space: pre-line;
   max-width: 100px;
   opacity: 0;
   max-height: 0;
